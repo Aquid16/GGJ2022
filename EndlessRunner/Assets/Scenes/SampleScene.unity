@@ -689,7 +689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRenderer: {fileID: 1212639578}
   jumpForce: 12
-  flipDuration: 0.5
+  flipDuration: 0.4
 --- !u!70 &935603752
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
