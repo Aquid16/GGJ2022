@@ -8,7 +8,6 @@ public class CameraController : MonoBehaviour
     public static CameraController instance;
 
     [SerializeField] float yPos = 3;
-    [SerializeField] float transitionDuration = .5f;
 
     int side = 1;
 
@@ -25,6 +24,6 @@ public class CameraController : MonoBehaviour
     public void ChangePos()
     {
         side *= -1;
-        transform.DOMoveY(side * yPos, transitionDuration);
+        transform.DOMoveY(side * yPos, PlayerController.instance.flipDuration);
     }
 }
