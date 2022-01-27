@@ -98,11 +98,11 @@ public class PlayerController : MonoBehaviour
 
     bool Grounded()
     {
-        return Physics2D.Raycast(transform.position, -Vector2.up * side, 0.3f, PhysicsHandler.instance.groundLayer);
+        return Physics2D.Raycast(transform.position, -Vector2.up * side, 0.1f, PhysicsHandler.instance.groundLayer);
     }
 
     private void OnDrawGizmos()
     {
-        Debug.DrawRay(transform.position, -Vector3.up * side * 0.3f, Color.magenta);
+        Debug.DrawRay(transform.position, -Vector3.up * side * 0.1f, Color.magenta);
     }
 }
