@@ -8,10 +8,15 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     [SerializeField] SpriteRenderer playerRenderer;
+    [Space]
+    [Header("Jumping")]
     [SerializeField] float jumpForce = 8f;
+    [SerializeField] float fallMultiplier = 2.5f;
+    [SerializeField] float lowJumpMultiplier = 2f;
 
     public float flipDuration = 0.5f;
 
+    bool isJumpHeld;
     int side = 1;
     Rigidbody2D playerRB;
     PlayerActions inputActions;
@@ -24,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
         inputActions.Gameplay.Swap.performed += ctx => FlipInput();
         inputActions.Gameplay.Jump.performed += ctx => JumpInput();
+        inputActions.Gameplay.Jump.canceled += ctx => isJumpHeld = false;
     }
 
     private void OnEnable()
@@ -49,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
     void JumpInput()
     {
+        isJumpHeld = true;
         state = state.HandleInput(this, StateTransition.ToJumping);
     }
 
@@ -75,7 +82,20 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(state);
+        Debug.Log(isJumpHeld);
+        HandleJumpGravity();
+    }
+
+    private void HandleJumpGravity()
+    {
+        if (playerRB.velocity.y * side < 0)
+        {
+            playerRB.velocity += Physics2D.gravity * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (playerRB.velocity.y * side > 0 && !isJumpHeld)
+        {
+            playerRB.velocity += Physics2D.gravity * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
     }
 
     public void Jump()
