@@ -30,6 +30,12 @@ public class PlayerController : MonoBehaviour
         Vector3 objScale = transform.localScale;
         objScale.y *= -1;
         transform.localScale = objScale;
-        playerRenderer.color = objScale.y == 1 ? Color.white : Color.black;
+        playerRenderer.color = objScale.y == 1 ? Color.black : Color.white;
+        CameraController.instance.ChangePos();
+    }
+
+    void Jump()
+    {
+
     }
 }

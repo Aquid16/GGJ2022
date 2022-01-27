@@ -1,18 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static CameraController instance;
+
+    [SerializeField] float yPos = 3;
+    [SerializeField] float transitionDuration = .5f;
+
+    int side = 1;
+
+    private void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        transform.position = new Vector3(0, yPos, -10);
+    }
+
+    public void ChangePos()
+    {
+        side *= -1;
+        transform.DOMoveY(side * yPos, transitionDuration);
     }
 }
