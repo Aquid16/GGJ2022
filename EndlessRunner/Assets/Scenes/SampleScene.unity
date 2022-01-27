@@ -672,7 +672,7 @@ MonoBehaviour:
   playerRenderer: {fileID: 1212639578}
   jumpForce: 10.5
   fallMultiplier: 4.5
-  lowJumpMultiplier: 4
+  lowJumpMultiplier: 3
   flipDuration: 0.4
 --- !u!70 &935603752
 CapsuleCollider2D:
@@ -705,7 +705,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 2.75
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

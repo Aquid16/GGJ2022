@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     [Space]
     [Header("Jumping")]
     [SerializeField] float jumpForce = 8f;
-    [SerializeField] float fallMultiplier = 2.5f;
-    [SerializeField] float lowJumpMultiplier = 2f;
+    [SerializeField][Min(1)]  float fallMultiplier = 2.5f;
+    [SerializeField][Min(1)] float lowJumpMultiplier = 2f;
 
     public float flipDuration = 0.5f;
 
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
 
         while (!Grounded())
         {
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
         state = state.HandleInput(this, StateTransition.ToRunning);
