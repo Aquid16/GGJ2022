@@ -54,22 +54,23 @@ public class PlayerController : MonoBehaviour
 
     public void FlipAction()
     {
+        playerRB.bodyType = RigidbodyType2D.Kinematic;
+        PhysicsHandler.instance.TogglePlayerGroundCollision(false);
         side *= -1;
-        float scaleY = transform.localScale.y * side;
         Sequence flipSequence = DOTween.Sequence();
-        flipSequence.Append(transform.DOScaleY(scaleY, flipDuration))
+        flipSequence.Append(transform.DOScaleY(side, flipDuration))
             .OnComplete(() => HandleFlipEnd());
         flipSequence.Play();
-        playerRenderer.color = scaleY == 1 ? Color.black : Color.white;
+        playerRenderer.color = side == 1 ? Color.black : Color.white;
         CameraController.instance.ChangePos();
     }
 
     private void HandleFlipEnd()
     {
         state = state.HandleInput(this, StateTransition.ToRunning);
-        Vector2 prevGravity = Physics2D.gravity;
-        prevGravity.y *= -1;
-        Physics2D.gravity = prevGravity;
+        PhysicsHandler.instance.FlipGravity();
+        playerRB.bodyType = RigidbodyType2D.Dynamic;
+        PhysicsHandler.instance.TogglePlayerGroundCollision(true);
     }
 
     private void Update()
@@ -80,5 +81,28 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         playerRB.velocity = Vector2.up * jumpForce * side;
+        StartCoroutine(CheckForGround());
+    }
+
+    IEnumerator CheckForGround()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        while (!Grounded())
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        state = state.HandleInput(this, StateTransition.ToRunning);
+    }
+
+    bool Grounded()
+    {
+        return Physics2D.Raycast(transform.position, -Vector2.up * side, 0.3f, PhysicsHandler.instance.groundLayer);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(transform.position, -Vector3.up * side * 0.3f, Color.magenta);
     }
 }
