@@ -11,6 +11,7 @@ public class ObjectPooler : MonoBehaviour
         public int number;
     }
 
+    [SerializeField] Transform objectsParent;
     [SerializeField] List<ItemData> poolData;
     List<GameObject> pooledObjects = new List<GameObject>();
     private void Start()
@@ -19,7 +20,7 @@ public class ObjectPooler : MonoBehaviour
         {
            for(int i=0;i<item.number;i++)
             {
-                GameObject inst = Instantiate(item.prefab);
+                GameObject inst = Instantiate(item.prefab, objectsParent);
                 inst.SetActive(false);
                 pooledObjects.Add(inst);
             }

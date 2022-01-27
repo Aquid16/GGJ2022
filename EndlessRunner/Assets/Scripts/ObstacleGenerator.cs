@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ObstacleGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject obstaclePrefab;
-    [SerializeField] Transform obstacleParent;
-    [Space]
     [Header("Spawn Parameters")]
     [SerializeField] float minSpawnDistance = 4f;
     [SerializeField] float maxSpawnDistance = 6f;
