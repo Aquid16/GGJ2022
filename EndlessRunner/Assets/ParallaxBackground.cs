@@ -25,7 +25,12 @@ public class ParallaxBackground : MonoBehaviour
         for (int layerIndex = 0; layerIndex < layerCount; layerIndex++)
         {
             float parallaxMultiplier = (float)(layerCount - layerIndex) / layerCount;
-            layers[layerIndex].transform.localPosition -= Vector3.right * parallaxMultiplier * scrollSpeed * Time.deltaTime;
+            Transform layer = layers[layerIndex];
+            layer.localPosition -= Vector3.right * parallaxMultiplier * scrollSpeed * Time.deltaTime;
+            if (layer.position.x <= -18)
+            {
+                layer.localPosition = Vector3.zero;
+            }
         }
     }
 }
