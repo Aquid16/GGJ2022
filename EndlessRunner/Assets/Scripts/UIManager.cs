@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] Image faderImage;
     [SerializeField] CanvasGroup deathScreen;
+    [SerializeField] CanvasGroup creditsScreen;
+
+    bool fullScreen = true;
+    Vector2[] resolutions = new Vector2[] { new Vector2(1920, 1080), new Vector2(1366, 768), new Vector2(1280, 720), new Vector2(960, 540) };
 
     private void Start()
     {
@@ -44,4 +48,38 @@ public class UIManager : MonoBehaviour
         fadeSequence.Append(deathScreen.DOFade(1, duration)).SetDelay(1f);
         fadeSequence.Play();
     }
+
+    public void DisplayCredits(bool isActive)
+    {
+        DisplayCredits(isActive, 1f);
+    }
+
+    public void DisplayCredits(bool fadeIn, float duration)
+    {
+        Sequence fadeSequence = DOTween.Sequence();
+        float fadeValue = fadeIn ? 1 : 0;
+        if(fadeIn)
+        {
+            creditsScreen.gameObject.SetActive(true);
+        }
+        fadeSequence.Append(creditsScreen.DOFade(fadeValue, duration));
+        if(!fadeIn)
+        {
+            fadeSequence.OnComplete(() => creditsScreen.gameObject.SetActive(false));
+        }
+        fadeSequence.Play();
+
+    }
+
+    public void ChangeResolution(int index)
+    {
+        Screen.SetResolution((int)resolutions[index].x, (int)resolutions[index].y, fullScreen);
+    }
+
+    public void SetFullScreen(bool isFullScreen)
+    {
+        fullScreen = isFullScreen;
+        Screen.fullScreen = isFullScreen;
+    }
+
 }
