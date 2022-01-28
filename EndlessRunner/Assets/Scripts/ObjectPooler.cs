@@ -19,11 +19,11 @@ public class ObjectPooler : MonoBehaviour
         foreach (ItemData item in poolData)
         {
            for(int i=0;i<item.number;i++)
-            {
+           {
                 GameObject inst = Instantiate(item.prefab, objectsParent);
                 inst.SetActive(false);
                 pooledObjects.Add(inst);
-            }
+           }
         }
     }
 

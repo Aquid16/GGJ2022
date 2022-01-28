@@ -7,15 +7,18 @@ public class ParallaxBackground : MonoBehaviour
     [SerializeField][Min(1)] float scrollSpeed = 2f;
 
     List<Transform> layers;
+    List<float> initialXPositions;
     int layerCount;
 
     // Start is called before the first frame update
     void Start()
     {
         layers = new List<Transform>();
+        initialXPositions = new List<float>();
         for (int i = 0; i < transform.childCount; i++)
         {
             layers.Add(transform.GetChild(i));
+            initialXPositions.Add(layers[i].position.x);
         }
         layerCount = layers.Count;
     }
@@ -27,9 +30,9 @@ public class ParallaxBackground : MonoBehaviour
             float parallaxMultiplier = (float)(layerCount - layerIndex) / layerCount;
             Transform layer = layers[layerIndex];
             layer.localPosition -= Vector3.right * parallaxMultiplier * scrollSpeed * Time.deltaTime;
-            if (layer.position.x <= -18)
+            if (layer.position.x <= -18 * layer.localScale.x + initialXPositions[layerIndex])
             {
-                layer.localPosition = Vector3.zero;
+                layer.localPosition = new Vector3(initialXPositions[layerIndex], layer.localPosition.y);
             }
         }
     }
