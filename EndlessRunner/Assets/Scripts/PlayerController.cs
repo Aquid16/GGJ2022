@@ -7,7 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
+    [Header("Sprite Management")]
     [SerializeField] SpriteRenderer playerRenderer;
+    [SerializeField] Sprite angelSprite;
+    [SerializeField] Sprite demonSprite;
     [Space]
     [Header("Jumping")]
     [SerializeField] float jumpForce = 8f;
@@ -68,7 +71,7 @@ public class PlayerController : MonoBehaviour
         flipSequence.Append(transform.DOScaleY(side, flipDuration))
             .OnComplete(() => HandleFlipEnd());
         flipSequence.Play();
-        playerRenderer.color = side == 1 ? Color.black : Color.white;
+        playerRenderer.sprite = side == 1 ? angelSprite : demonSprite;
         CameraController.instance.ChangePos();
     }
 
