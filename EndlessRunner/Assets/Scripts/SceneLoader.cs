@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public void SwitchScene(int sceneNumber)
+    IEnumerator SwitchScene(int sceneNumber)
     {
+        yield return new WaitForSeconds(2.8f);
         SceneManager.LoadScene(sceneNumber);
+    }
+    public void StartSwitchingScene(int sceneNumber)
+    {
+        StartCoroutine(SwitchScene(sceneNumber));
     }
 }

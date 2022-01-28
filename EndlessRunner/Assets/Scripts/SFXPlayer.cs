@@ -36,4 +36,10 @@ public class SFXPlayer : MonoBehaviour
         SoundTypeToSound soundData = soundLibrary.First(data => data.type == type);
         sfxSource.PlayOneShot(soundData.clip);
     }
+
+    public void PlaySFX(int index)
+    {
+        SoundTypeToSound soundData = soundLibrary[index];
+        sfxSource.PlayOneShot(soundData.clip);
+    }
 }
