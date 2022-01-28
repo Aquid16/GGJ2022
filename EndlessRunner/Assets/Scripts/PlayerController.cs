@@ -130,4 +130,11 @@ public class PlayerController : MonoBehaviour
     {
         Debug.DrawRay(transform.position, -Vector3.up * side * 0.1f, Color.magenta);
     }
+
+    public void Die()
+    {
+        SFXPlayer.instance.PlaySFX(SFXType.Death);
+        inputActions.Disable();
+        //animations.....
+    }
 }
