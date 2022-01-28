@@ -33,32 +33,32 @@ public class SFXPlayer : MonoBehaviour
     }
 
     [SerializeField] List<SoundTypeToSound> soundLibrary;
-    [SerializeField] AudioSource sfxSource;
-    [SerializeField] AudioSource musicSource;
+    //[SerializeField] AudioSource sfxSource;
+    //[SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource masterSource;
     [SerializeField] AudioMixer audioMxr;
 
     private void Start()
     {
         UIManager.instance.masterSlider.value = 1;
-        UIManager.instance.musicSlider.value = 1;
-        UIManager.instance.sfxSlider.value = 1;
-
         UIManager.instance.masterSlider.onValueChanged.AddListener(SetMasterVolume);
-        UIManager.instance.musicSlider.onValueChanged.AddListener(SetMusicVolume);
-        UIManager.instance.sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+
+        //    UIManager.instance.musicSlider.value = 1;
+        //    UIManager.instance.sfxSlider.value = 1;
+        //    UIManager.instance.musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        //    UIManager.instance.sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
-    public void PlaySFX(SFXType type)
+public void PlaySFX(SFXType type)
     {
         SoundTypeToSound soundData = soundLibrary.First(data => data.type == type);
-        sfxSource.PlayOneShot(soundData.clip);
+        masterSource.PlayOneShot(soundData.clip);
     }
 
     public void PlaySFX(int index)
     {
         SoundTypeToSound soundData = soundLibrary[index];
-        sfxSource.PlayOneShot(soundData.clip);
+        masterSource.PlayOneShot(soundData.clip);
     }
 
     public void SetMasterVolume(float value)
@@ -67,15 +67,15 @@ public class SFXPlayer : MonoBehaviour
         masterSource.volume = value;
     }
 
-    public void SetMusicVolume(float value)
-    {
-        audioMxr.SetFloat("musicValue", value);
-        musicSource.volume = value;
-    }
+    //public void SetMusicVolume(float value)
+    //{
+    //    audioMxr.SetFloat("musicValue", value);
+    //    musicSource.volume = value;
+    //}
 
-    public void SetSFXVolume(float value)
-    {
-        audioMxr.SetFloat("sfxValue", value);
-        sfxSource.volume = value;
-    }
+    //public void SetSFXVolume(float value)
+    //{
+    //    audioMxr.SetFloat("sfxValue", value);
+    //    sfxSource.volume = value;
+    //}
 }

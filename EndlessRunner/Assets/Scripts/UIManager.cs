@@ -20,8 +20,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup settingsScreen;
 
     public Slider masterSlider;
-    public Slider musicSlider;
-    public Slider sfxSlider;
+    //public Slider musicSlider;
+    //public Slider sfxSlider;
     public bool subWindowOpen { get; set; }
 
     bool fullScreen = true;
