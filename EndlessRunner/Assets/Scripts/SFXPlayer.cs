@@ -15,10 +15,14 @@ public enum SFXType
 public class SFXPlayer : MonoBehaviour
 {
     public static SFXPlayer instance;
+    [SerializeField] AudioSource audioSrc;
 
     private void Awake()
     {
         instance = this;
+        UIManager.instance.masterSlider.value = 0;
+        UIManager.instance.musicSlider.value = 0;
+        UIManager.instance.sfxSlider.value = 0;
     }
 
     [System.Serializable]

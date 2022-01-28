@@ -16,9 +16,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image faderImage;
     [SerializeField] CanvasGroup deathScreen;
     [SerializeField] CanvasGroup creditsScreen;
-    [SerializeField] Slider masterSlider;
-    [SerializeField] Slider musicSlider;
-    [SerializeField] Slider sfxSlider;
+    public Slider masterSlider;
+    public Slider musicSlider;
+    public Slider sfxSlider;
 
     bool fullScreen = true;
     Vector2[] resolutions = new Vector2[] { new Vector2(1920, 1080), new Vector2(1366, 768), new Vector2(1280, 720), new Vector2(960, 540) };
@@ -26,9 +26,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         Fade(false, 0.5f);
-        masterSlider.value = 0;
-        musicSlider.value = 0;
-        sfxSlider.value = 0;
     }
 
     public void Fade(bool fadeIn, float duration = 2.5f)
