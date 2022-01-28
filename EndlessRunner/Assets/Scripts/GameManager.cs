@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public float gameSpeed = 3f;
     bool isPaused;
+    bool gameRunning;
     float speedSetting;
 
     private void Start()
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         gameSpeed = speedSetting;
         ObstacleGenerator.instance.StartSpawning();
         firstInput = false;
+        StartCoroutine(RaiseSpeed());
     }
 
     public void TogglePause()
@@ -39,5 +41,26 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
         UIManager.instance.DisplayPauseScreen(isPaused, 0.75f);
+    }
+
+    public void StopGame()
+    {
+        gameSpeed = 0;
+        gameRunning = false;
+    }
+
+    IEnumerator RaiseSpeed()
+    {
+        gameRunning = true;
+        while (gameRunning)
+        {
+            gameSpeed += 0.05f * Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public float GetRelativeDistance()
+    {
+        return gameSpeed / speedSetting;
     }
 }

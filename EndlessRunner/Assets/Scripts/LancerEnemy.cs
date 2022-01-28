@@ -9,7 +9,7 @@ public class LancerEnemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //GAME OVER
-            GameManager.instance.gameSpeed = 0;
+            GameManager.instance.StopGame();
             PlayerController.instance.Die();
         }
     }

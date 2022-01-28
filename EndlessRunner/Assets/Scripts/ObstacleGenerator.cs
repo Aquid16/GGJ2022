@@ -20,6 +20,7 @@ public class ObstacleGenerator : MonoBehaviour
     [SerializeField] RectTransform flipTutorialCanvas;
 
     ObjectPooler pooler;
+    bool spawning;
     bool firstGiantSpawn = true;
 
     // Start is called before the first frame update
@@ -30,12 +31,14 @@ public class ObstacleGenerator : MonoBehaviour
 
     public void StartSpawning()
     {
+        spawning = true;
         StartCoroutine(SpawnObstacles());
     }
 
     void SpawnNextObstacle()
     {
-        float distance = Random.Range(minSpawnDistance, maxSpawnDistance);
+        float distance = Random.Range(minSpawnDistance * GameManager.instance.GetRelativeDistance(),
+            maxSpawnDistance * GameManager.instance.GetRelativeDistance());
         Vector2 spawnPoint = new Vector2(distance, 0);
         GameObject obst = pooler.GetPooledItem();
         obst.transform.localPosition = spawnPoint;
@@ -50,7 +53,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     IEnumerator SpawnObstacles()
     {
-        while (true)
+        while (spawning)
         {
             SpawnNextObstacle();
             yield return new WaitForSeconds(Random.Range(minSpawnRate, maxSpawnRate));
@@ -59,6 +62,6 @@ public class ObstacleGenerator : MonoBehaviour
 
     public void StopSpawning()
     {
-        StopCoroutine(SpawnObstacles());
+        spawning = false;
     }
 }
