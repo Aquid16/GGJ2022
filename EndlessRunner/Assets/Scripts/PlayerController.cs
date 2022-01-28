@@ -58,6 +58,10 @@ public class PlayerController : MonoBehaviour
 
     void JumpInput()
     {
+        if (GameManager.instance.firstInput)
+        {
+            GameManager.instance.StartGame();
+        }
         isJumpHeld = true;
         state = state.HandleInput(this, StateTransition.ToJumping);
     }
@@ -86,7 +90,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(isJumpHeld);
         HandleJumpGravity();
     }
 
