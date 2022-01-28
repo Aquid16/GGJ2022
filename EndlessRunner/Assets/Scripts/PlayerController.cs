@@ -8,9 +8,8 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     [Header("Sprite Management")]
-    [SerializeField] SpriteRenderer playerRenderer;
-    [SerializeField] Sprite angelSprite;
-    [SerializeField] Sprite demonSprite;
+    [SerializeField] GameObject angelObject;
+    [SerializeField] GameObject demonObject;
     [Space]
     [Header("Jumping")]
     [SerializeField] float jumpForce = 8f;
@@ -74,12 +73,21 @@ public class PlayerController : MonoBehaviour
         PhysicsHandler.instance.TogglePlayerGroundCollision(false);
         side *= -1;
         Sequence flipSequence = DOTween.Sequence();
-        flipSequence.Append(transform.DOScaleY(side, flipDuration))
-            .OnComplete(() => HandleFlipEnd());
+        flipSequence.Append(transform.DOScaleY(0, flipDuration / 2f))
+            .OnComplete(() => FlipHalfWay());
         flipSequence.Play();
         SFXPlayer.instance.PlaySFX(side == 1 ? SFXType.SwapToHeaven : SFXType.SwapToHell);
-        playerRenderer.sprite = side == 1 ? angelSprite : demonSprite;
         CameraController.instance.ChangePos();
+    }
+
+    void FlipHalfWay()
+    {
+        angelObject.SetActive(side == 1);
+        demonObject.SetActive(side == -1);
+        Sequence flipHalfSequence = DOTween.Sequence();
+        flipHalfSequence.Append(transform.DOScaleY(side, flipDuration / 2f))
+            .OnComplete(() => HandleFlipEnd());
+        flipHalfSequence.Play();
     }
 
     private void HandleFlipEnd()
