@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
         flipSequence.Append(transform.DOScaleY(side, flipDuration))
             .OnComplete(() => HandleFlipEnd());
         flipSequence.Play();
+        SFXPlayer.instance.PlaySFX(side == 1 ? SFXType.SwapToHeaven : SFXType.SwapToHell);
         playerRenderer.sprite = side == 1 ? angelSprite : demonSprite;
         CameraController.instance.ChangePos();
     }
@@ -104,6 +105,7 @@ public class PlayerController : MonoBehaviour
     public void Jump()
     {
         playerRB.velocity = Vector2.up * jumpForce * side;
+        SFXPlayer.instance.PlaySFX(SFXType.Jump);
         StartCoroutine(CheckForGround());
     }
 
