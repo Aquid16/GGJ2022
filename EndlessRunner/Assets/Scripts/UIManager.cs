@@ -37,8 +37,11 @@ public class UIManager : MonoBehaviour
         fadeSequence.Play();
     }
 
-    public void DisplayDeathScreen()
+    public void DisplayDeathScreen(float duration)
     {
-
+        Sequence fadeSequence = DOTween.Sequence();
+        deathScreen.gameObject.SetActive(true);
+        fadeSequence.Append(deathScreen.DOFade(1, duration)).SetDelay(1f);
+        fadeSequence.Play();
     }
 }

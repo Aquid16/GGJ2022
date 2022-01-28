@@ -141,5 +141,6 @@ public class PlayerController : MonoBehaviour
         SFXPlayer.instance.PlaySFX(SFXType.Death);
         inputActions.Disable();
         //animations.....
+        UIManager.instance.DisplayDeathScreen(1f);
     }
 }
