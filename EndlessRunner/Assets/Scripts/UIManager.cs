@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] Image faderImage;
+    [SerializeField] CanvasGroup deathScreen;
 
     private void Start()
     {
@@ -34,5 +35,10 @@ public class UIManager : MonoBehaviour
             fadeSequence.OnComplete(() => faderImage.gameObject.SetActive(false));
         }
         fadeSequence.Play();
+    }
+
+    public void DisplayDeathScreen()
+    {
+
     }
 }
