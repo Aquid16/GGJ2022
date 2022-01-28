@@ -6,10 +6,15 @@ public class Obstacle : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && PlayerController.instance.IsFalling())
         {
             //GAME OVER
             PlayerController.instance.Die();
         }
+    }
+
+    private void Update()
+    {
+        
     }
 }
