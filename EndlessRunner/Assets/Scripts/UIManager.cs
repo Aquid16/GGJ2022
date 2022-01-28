@@ -26,9 +26,9 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         Fade(false, 0.5f);
-        masterSlider.value = 1;
-        musicSlider.value = 1;
-        sfxSlider.value = 1;
+        //masterSlider.value = 1;
+        //musicSlider.value = 1;
+        //sfxSlider.value = 1;
     }
 
     public void Fade(bool fadeIn, float duration = 2.5f)

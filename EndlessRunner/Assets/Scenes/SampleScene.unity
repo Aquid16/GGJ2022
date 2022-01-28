@@ -521,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &93979149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1714,6 +1714,9 @@ MonoBehaviour:
   faderImage: {fileID: 93979150}
   deathScreen: {fileID: 528891387}
   creditsScreen: {fileID: 0}
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!114 &651890264
 MonoBehaviour:
   m_ObjectHideFlags: 0
