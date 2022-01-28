@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         gameRunning = true;
         while (gameRunning)
         {
-            gameSpeed += 0.05f * Time.deltaTime;
+            gameSpeed += 0.2f * Time.deltaTime;
             yield return null;
         }
     }
