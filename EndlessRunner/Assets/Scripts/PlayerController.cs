@@ -152,6 +152,10 @@ public class PlayerController : MonoBehaviour
         playerRB.bodyType = RigidbodyType2D.Kinematic;
         UIManager.instance.DisplayDeathScreen(1f);
         ObstacleGenerator.instance.StopSpawning();
+
+        Sequence fadeSequence = DOTween.Sequence();
+        fadeSequence.Append(gameObject.GetComponentInChildren<CanvasGroup>().DOFade(0, 1));
+        fadeSequence.Play();
     }
 
     public int GetSide()
