@@ -45,8 +45,8 @@ public class ObjectPooler : MonoBehaviour
 
     public GameObject GetPooledItem()
     {
-        string pulledTag = string.Empty;
-        int index = 0;
+        string pulledTag;
+        int index;
         if (tutorialSpawnCount < tutorialSpawns.Count)
         {
             pulledTag = tutorialSpawns[tutorialSpawnCount];
