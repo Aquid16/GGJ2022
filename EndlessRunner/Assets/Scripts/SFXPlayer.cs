@@ -10,7 +10,9 @@ public enum SFXType
     SwapToHell,
     SwapToHeaven,
     Jump,
-    Death
+    Death,
+    HellMusic,
+    HeavenMusic
 }
 
 public class SFXPlayer : MonoBehaviour
@@ -41,6 +43,7 @@ public class SFXPlayer : MonoBehaviour
         UIManager.instance.masterSlider.value = 1;
         UIManager.instance.musicSlider.value = 1;
         UIManager.instance.sfxSlider.value = 1;
+
         UIManager.instance.masterSlider.onValueChanged.AddListener(SetMasterVolume);
         UIManager.instance.musicSlider.onValueChanged.AddListener(SetMusicVolume);
         UIManager.instance.sfxSlider.onValueChanged.AddListener(SetSFXVolume);
@@ -61,35 +64,35 @@ public class SFXPlayer : MonoBehaviour
     public void SetMasterVolume(float value)
     {
         audioMxr.SetFloat("masterValue", value);
+        audioMxr.SetFloat("mainMenuMusicValue", value);
+        audioMxr.SetFloat("clickSFXValue", value);
+        audioMxr.SetFloat("deathSFXValue", value);
+        audioMxr.SetFloat("heavenMusicValue", value);
+        audioMxr.SetFloat("hellMusicValue", value);
+        audioMxr.SetFloat("jumpSFXValue", value);
+        audioMxr.SetFloat("swapToHellSFXValue", value);
+        audioMxr.SetFloat("swapToHeavenSFXValue", value);
+
         masterSource.volume = value;
         musicSource.volume = value;
         sfxSource.volume = value;
-        UIManager.instance.musicSlider.value = value;
-        UIManager.instance.sfxSlider.value = value;
     }
 
     public void SetMusicVolume(float value)
     {
-        audioMxr.SetFloat("musicValue", value);
+        audioMxr.SetFloat("mainMenuMusicValue", value);
+        audioMxr.SetFloat("heavenMusicValue", value);
+        audioMxr.SetFloat("hellMusicValue", value);
         musicSource.volume = value;
-
-
-        if(musicSource.volume > masterSource.volume)
-        {
-            masterSource.volume = musicSource.volume;
-            UIManager.instance.masterSlider.value = value;
-        }
     }
 
     public void SetSFXVolume(float value)
     {
-        audioMxr.SetFloat("sfxValue", value);
+        audioMxr.SetFloat("clickSFXValue", value);
+        audioMxr.SetFloat("jumpSFXValue", value);
+        audioMxr.SetFloat("swapToHellSFXValue", value);
+        audioMxr.SetFloat("swapToHeavenSFXValue", value);
+        audioMxr.SetFloat("deathSFXValue", value);
         sfxSource.volume = value;
-
-        if (sfxSource.volume > masterSource.volume)
-        {
-            masterSource.volume = sfxSource.volume;
-            UIManager.instance.masterSlider.value = value;
-        }
     }
 }
