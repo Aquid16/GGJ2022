@@ -16,11 +16,12 @@ public class LancerEnemy : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("Deactivate", 5f);
+        StartCoroutine(DeactivateAfterTime());
     }
 
-    void Deactivate()
+    IEnumerator DeactivateAfterTime()
     {
+        yield return new WaitForSeconds(4f);
         gameObject.SetActive(false);
     }
 }
