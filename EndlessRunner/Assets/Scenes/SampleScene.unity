@@ -4247,6 +4247,9 @@ MonoBehaviour:
   - prefab: {fileID: 9088452909210533969, guid: 167b8234be0e09c49b2692a372196a9e,
       type: 3}
     number: 10
+  - prefab: {fileID: 4717715686076955677, guid: ab1b91a8479025141a81e31e949b5a07,
+      type: 3}
+    number: 10
   - prefab: {fileID: 2574224628798132073, guid: 7d6b736a5ad9a6a409a520f07487dbbe,
       type: 3}
     number: 10
