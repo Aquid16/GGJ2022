@@ -23,12 +23,9 @@ public class ObstacleGenerator : MonoBehaviour
     void SpawnNextObstacle()
     {
         float distance = Random.Range(minSpawnDistance, maxSpawnDistance);
-        Vector2 spawnPoint = new Vector2(prevXSpawn + distance, 0);
+        Vector2 spawnPoint = new Vector2(distance, 0);
         GameObject obst = pooler.GetPooledItem();
-        float side = Mathf.Sign(Random.Range(-2, 2));
         obst.transform.localPosition = spawnPoint;
-        obst.transform.localScale = new Vector3(1, side, 1);
-        obst.GetComponentInChildren<SpriteRenderer>().color = side >= 1 ? Color.black : Color.white;
         obst.SetActive(true);
         prevXSpawn += distance;
     }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-    [SerializeField][Min(1)] float scrollSpeed = 2f;
-
     List<Transform> layers;
     List<float> initialXPositions;
     int layerCount;
@@ -29,7 +27,7 @@ public class ParallaxBackground : MonoBehaviour
         {
             float parallaxMultiplier = (float)(layerCount - layerIndex) / layerCount;
             Transform layer = layers[layerIndex];
-            layer.localPosition -= Vector3.right * parallaxMultiplier * scrollSpeed * Time.deltaTime;
+            layer.localPosition -= Vector3.right * parallaxMultiplier * GameManager.instance.gameSpeed * Time.deltaTime;
             if (layer.position.x <= -18 * layer.localScale.x + initialXPositions[layerIndex])
             {
                 layer.localPosition = new Vector3(initialXPositions[layerIndex], layer.localPosition.y);

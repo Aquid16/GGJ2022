@@ -14,6 +14,11 @@ public class PhysicsHandler : MonoBehaviour
     [SerializeField] LayerMask playerLayer;
     public LayerMask groundLayer;
 
+    private void Start()
+    {
+        Physics2D.gravity = -9.81f * Vector2.up;
+    }
+
     public void FlipGravity()
     {
         Vector2 prevGravity = Physics2D.gravity;

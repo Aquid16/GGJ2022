@@ -13,7 +13,10 @@ public class ObjectPooler : MonoBehaviour
 
     [SerializeField] Transform objectsParent;
     [SerializeField] List<ItemData> poolData;
+
     List<GameObject> pooledObjects = new List<GameObject>();
+    List<string> tags = new List<string>();
+
     private void Start()
     {
         foreach (ItemData item in poolData)
@@ -24,14 +27,17 @@ public class ObjectPooler : MonoBehaviour
                 inst.SetActive(false);
                 pooledObjects.Add(inst);
            }
+
+            tags.Add(item.prefab.tag);
         }
     }
 
     public GameObject GetPooledItem()
     {
+        int index = Random.Range(0, tags.Count);
         for(int i=0; i<pooledObjects.Count-1; i++)
         {
-            if(!pooledObjects[i].activeInHierarchy)
+            if(!pooledObjects[i].activeInHierarchy && pooledObjects[i].CompareTag(tags[index]))
             {
                 return pooledObjects[i];
             }

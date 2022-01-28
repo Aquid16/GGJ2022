@@ -9,12 +9,17 @@ public class Obstacle : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //GAME OVER
+            GameManager.instance.gameSpeed = 0;
             PlayerController.instance.Die();
         }
     }
 
     private void Update()
     {
-        
+        transform.localPosition -= Time.deltaTime * Vector3.right * GameManager.instance.gameSpeed;
+        if (transform.localPosition.x <= -12.5f)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
