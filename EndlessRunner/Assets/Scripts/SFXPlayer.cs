@@ -64,35 +64,18 @@ public class SFXPlayer : MonoBehaviour
     public void SetMasterVolume(float value)
     {
         audioMxr.SetFloat("masterValue", value);
-        audioMxr.SetFloat("mainMenuMusicValue", value);
-        audioMxr.SetFloat("clickSFXValue", value);
-        audioMxr.SetFloat("deathSFXValue", value);
-        audioMxr.SetFloat("heavenMusicValue", value);
-        audioMxr.SetFloat("hellMusicValue", value);
-        audioMxr.SetFloat("jumpSFXValue", value);
-        audioMxr.SetFloat("swapToHellSFXValue", value);
-        audioMxr.SetFloat("swapToHeavenSFXValue", value);
-
         masterSource.volume = value;
-        musicSource.volume = value;
-        sfxSource.volume = value;
     }
 
     public void SetMusicVolume(float value)
     {
-        audioMxr.SetFloat("mainMenuMusicValue", value);
-        audioMxr.SetFloat("heavenMusicValue", value);
-        audioMxr.SetFloat("hellMusicValue", value);
+        audioMxr.SetFloat("musicValue", value);
         musicSource.volume = value;
     }
 
     public void SetSFXVolume(float value)
     {
-        audioMxr.SetFloat("clickSFXValue", value);
-        audioMxr.SetFloat("jumpSFXValue", value);
-        audioMxr.SetFloat("swapToHellSFXValue", value);
-        audioMxr.SetFloat("swapToHeavenSFXValue", value);
-        audioMxr.SetFloat("deathSFXValue", value);
+        audioMxr.SetFloat("sfxValue", value);
         sfxSource.volume = value;
     }
 }
