@@ -126,6 +126,11 @@ public class PlayerController : MonoBehaviour
         return Physics2D.Raycast(transform.position, -Vector2.up * side, 0.1f, PhysicsHandler.instance.groundLayer);
     }
 
+    internal bool IsFalling()
+    {
+        return playerRB.velocity.y * side < 0;
+    }
+
     private void OnDrawGizmos()
     {
         Debug.DrawRay(transform.position, -Vector3.up * side * 0.1f, Color.magenta);
