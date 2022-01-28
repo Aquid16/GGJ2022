@@ -3454,7 +3454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45601f8912189e344abd2f444efea11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSrc: {fileID: 0}
   soundLibrary:
   - type: 0
     clip: {fileID: 8300000, guid: 3f81b88378a32d64b890aa5d3acd74c9, type: 3}
@@ -3467,6 +3466,7 @@ MonoBehaviour:
   - type: 4
     clip: {fileID: 8300000, guid: ed9e3d99c3b09d749a996a85e850d65f, type: 3}
   sfxSource: {fileID: 84921573}
+  audioMxr: {fileID: 24100000, guid: f1b3139161ac0874b9a10c6e5427c1c3, type: 2}
 --- !u!4 &1301448691
 Transform:
   m_ObjectHideFlags: 0
