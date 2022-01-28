@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ObstacleGenerator : MonoBehaviour
 {
+    public static ObstacleGenerator instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     [Header("Spawn Parameters")]
     [SerializeField] [Min(1)] float minSpawnDistance = 4f;
     [SerializeField] [Min(1)] float maxSpawnDistance = 6f;
@@ -17,6 +24,10 @@ public class ObstacleGenerator : MonoBehaviour
     void Start()
     {
         pooler = GetComponent<ObjectPooler>();
+    }
+
+    public void StartSpawning()
+    {
         StartCoroutine(SpawnObstacles());
     }
 
@@ -34,8 +45,13 @@ public class ObstacleGenerator : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(minSpawnRate, maxSpawnRate));
             SpawnNextObstacle();
+            yield return new WaitForSeconds(Random.Range(minSpawnRate, maxSpawnRate));
         }
+    }
+
+    public void StopSpawning()
+    {
+        StopCoroutine(SpawnObstacles());
     }
 }

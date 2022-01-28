@@ -143,5 +143,11 @@ public class PlayerController : MonoBehaviour
         //animations......
         playerRB.bodyType = RigidbodyType2D.Kinematic;
         UIManager.instance.DisplayDeathScreen(1f);
+        ObstacleGenerator.instance.StopSpawning();
+    }
+
+    public int GetSide()
+    {
+        return side;
     }
 }

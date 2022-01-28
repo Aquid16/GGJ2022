@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         gameSpeed = speedSetting;
+        ObstacleGenerator.instance.StartSpawning();
         firstInput = false;
     }
 

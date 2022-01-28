@@ -3454,7 +3454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45601f8912189e344abd2f444efea11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSrc: {fileID: 0}
   soundLibrary:
   - type: 0
     clip: {fileID: 8300000, guid: 3f81b88378a32d64b890aa5d3acd74c9, type: 3}
@@ -3467,6 +3466,7 @@ MonoBehaviour:
   - type: 4
     clip: {fileID: 8300000, guid: ed9e3d99c3b09d749a996a85e850d65f, type: 3}
   sfxSource: {fileID: 84921573}
+  audioMxr: {fileID: 0}
 --- !u!4 &1301448691
 Transform:
   m_ObjectHideFlags: 0
@@ -4206,8 +4206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpawnDistance: 12
   maxSpawnDistance: 14
-  minSpawnRate: 2
-  maxSpawnRate: 3.5
+  minSpawnRate: 1.5
+  maxSpawnRate: 2.75
 --- !u!4 &1839200520
 Transform:
   m_ObjectHideFlags: 0
@@ -4236,14 +4236,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsParent: {fileID: 1031658464}
   poolData:
+  - prefab: {fileID: 3851786198180184804, guid: 768c268aa70b986488c1885c636fb393,
+      type: 3}
+    number: 10
   - prefab: {fileID: 7337262125362278438, guid: 71b3003eb8e937d4b8450d793685acae,
       type: 3}
-    number: 5
+    number: 10
   - prefab: {fileID: 212738893064881037, guid: 5d372d4274121f7448dd3135038fab5d, type: 3}
-    number: 5
+    number: 10
   - prefab: {fileID: 9088452909210533969, guid: 167b8234be0e09c49b2692a372196a9e,
       type: 3}
-    number: 5
+    number: 10
+  - prefab: {fileID: 2574224628798132073, guid: 7d6b736a5ad9a6a409a520f07487dbbe,
+      type: 3}
+    number: 10
 --- !u!1 &1848437508
 GameObject:
   m_ObjectHideFlags: 0

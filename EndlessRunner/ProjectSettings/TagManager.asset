@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Spears
-  - Spike
+  - Hell Spikes
+  - Hell Spears
   - Hell Wall
+  - Heaven Lancer
+  - Heaven Giant
   layers:
   - Default
   - TransparentFX
