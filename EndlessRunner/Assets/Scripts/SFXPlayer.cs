@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using System.Linq;
 
 public enum SFXType
@@ -15,14 +16,11 @@ public enum SFXType
 public class SFXPlayer : MonoBehaviour
 {
     public static SFXPlayer instance;
-    [SerializeField] AudioSource audioSrc;
+    //[SerializeField] AudioSource audioSrc;
 
     private void Awake()
     {
         instance = this;
-        UIManager.instance.masterSlider.value = 0;
-        UIManager.instance.musicSlider.value = 0;
-        UIManager.instance.sfxSlider.value = 0;
     }
 
     [System.Serializable]
@@ -34,6 +32,17 @@ public class SFXPlayer : MonoBehaviour
 
     [SerializeField] List<SoundTypeToSound> soundLibrary;
     [SerializeField] AudioSource sfxSource;
+    [SerializeField] AudioMixer audioMxr;
+
+    private void Start()
+    {
+        UIManager.instance.masterSlider.value = 0;
+        UIManager.instance.musicSlider.value = 0;
+        UIManager.instance.sfxSlider.value = 0;
+        UIManager.instance.masterSlider.onValueChanged.AddListener(SetMasterVolume);
+        UIManager.instance.musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        UIManager.instance.sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+    }
 
     public void PlaySFX(SFXType type)
     {
@@ -45,5 +54,20 @@ public class SFXPlayer : MonoBehaviour
     {
         SoundTypeToSound soundData = soundLibrary[index];
         sfxSource.PlayOneShot(soundData.clip);
+    }
+
+    public void SetMasterVolume(float value)
+    {
+        audioMxr.SetFloat("masterValue", value);
+    }
+
+    public void SetMusicVolume(float value)
+    {
+        audioMxr.SetFloat("musicValue", value);
+    }
+
+    public void SetSFXVolume(float value)
+    {
+        audioMxr.SetFloat("sfxValue", value);
     }
 }
