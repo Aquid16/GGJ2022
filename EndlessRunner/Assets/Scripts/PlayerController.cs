@@ -131,16 +131,12 @@ public class PlayerController : MonoBehaviour
         return playerRB.velocity.y * side < 0;
     }
 
-    private void OnDrawGizmos()
-    {
-        Debug.DrawRay(transform.position, -Vector3.up * side * 0.1f, Color.magenta);
-    }
-
     public void Die()
     {
         SFXPlayer.instance.PlaySFX(SFXType.Death);
         inputActions.Disable();
-        //animations.....
+        //animations......
+        playerRB.bodyType = RigidbodyType2D.Kinematic;
         UIManager.instance.DisplayDeathScreen(1f);
     }
 }
