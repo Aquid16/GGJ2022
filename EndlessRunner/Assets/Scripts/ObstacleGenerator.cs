@@ -16,9 +16,11 @@ public class ObstacleGenerator : MonoBehaviour
     [SerializeField] [Min(1)] float maxSpawnDistance = 6f;
     [SerializeField] [Min(1)] float minSpawnRate = 1f;
     [SerializeField] [Min(1)] float maxSpawnRate = 2f;
+    [Space]
+    [SerializeField] RectTransform flipTutorialCanvas;
 
     ObjectPooler pooler;
-    float prevXSpawn;
+    bool firstGiantSpawn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,12 @@ public class ObstacleGenerator : MonoBehaviour
         GameObject obst = pooler.GetPooledItem();
         obst.transform.localPosition = spawnPoint;
         obst.SetActive(true);
-        prevXSpawn += distance;
+        if (obst.CompareTag("Heaven Giant") && firstGiantSpawn)
+        {
+            flipTutorialCanvas.anchoredPosition = new Vector2(obst.transform.position.x, -1f);
+            flipTutorialCanvas.gameObject.SetActive(true);
+            firstGiantSpawn = false;
+        }
     }
 
     IEnumerator SpawnObstacles()
