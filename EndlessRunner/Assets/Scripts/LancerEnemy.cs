@@ -16,10 +16,7 @@ public class LancerEnemy : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GameManager.instance.passedTutorial)
-        {
-            StartCoroutine(CheckForPlayer());
-        }
+        StartCoroutine(CheckForPlayer());
         StartCoroutine(DeactivateAfterTime());
     }
 
@@ -35,7 +32,13 @@ public class LancerEnemy : MonoBehaviour
         {
             yield return null;
         }
-        int pointToGive = 1;
-        Debug.Log($"Give player {pointToGive} points!");
+        if (!GameManager.instance.passedTutorial)
+        {
+            GameManager.instance.IncrementTutorialCount();
+        }
+        else
+        {
+            ScoreHandler.instance.UpdateScore(1);
+        }
     }
 }

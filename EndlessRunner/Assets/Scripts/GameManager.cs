@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     bool gameRunning;
     float speedSetting;
 
+    int tutorialCount;
+    int tutorialMax = 6;
+
     private void Start()
     {
         Time.timeScale = 1;
@@ -65,5 +68,15 @@ public class GameManager : MonoBehaviour
     public float GetRelativeDistance()
     {
         return gameSpeed / speedSetting;
+    }
+
+    public void IncrementTutorialCount()
+    {
+        tutorialCount++;
+        if (tutorialCount >= tutorialMax)
+        {
+            passedTutorial = true;
+            UIManager.instance.EnableScoreText();
+        }
     }
 }

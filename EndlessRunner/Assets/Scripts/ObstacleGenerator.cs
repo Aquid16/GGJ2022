@@ -45,7 +45,7 @@ public class ObstacleGenerator : MonoBehaviour
         obst.SetActive(true);
         if (obst.CompareTag("Heaven Giant") && firstGiantSpawn)
         {
-            flipTutorialCanvas.anchoredPosition = new Vector2(obst.transform.position.x, -1f);
+            flipTutorialCanvas.anchoredPosition = new Vector2(obst.transform.position.x - 7.5f, -1f);
             flipTutorialCanvas.gameObject.SetActive(true);
             firstGiantSpawn = false;
         }
@@ -53,6 +53,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     IEnumerator SpawnObstacles()
     {
+        yield return new WaitForSeconds(3f);
         while (spawning)
         {
             SpawnNextObstacle();

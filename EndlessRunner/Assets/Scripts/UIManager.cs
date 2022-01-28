@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup creditsScreen;
     [SerializeField] CanvasGroup pauseScreen;
     [SerializeField] CanvasGroup settingsScreen;
+
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI totalScoreText;
 
     public Slider masterSlider;
     //public Slider musicSlider;
@@ -50,6 +54,8 @@ public class UIManager : MonoBehaviour
 
     public void DisplayDeathScreen(float duration)
     {
+        scoreText.gameObject.SetActive(false);
+        totalScoreText.text = $"You got {ScoreHandler.instance.score} points.";
         Sequence fadeSequence = DOTween.Sequence();
         deathScreen.gameObject.SetActive(true);
         fadeSequence.Append(deathScreen.DOFade(1, duration)).SetDelay(1f);
@@ -130,5 +136,15 @@ public class UIManager : MonoBehaviour
         }
         fadeSequence.SetUpdate(true);
         fadeSequence.Play();
+    }
+
+    public void EnableScoreText()
+    {
+        scoreText.gameObject.SetActive(true);
+    }
+
+    public void UpdateScoreText()
+    {
+        scoreText.text = ScoreHandler.instance.score.ToString();
     }
 }

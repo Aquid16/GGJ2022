@@ -25,10 +25,7 @@ public class Obstacle : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GameManager.instance.passedTutorial)
-        {
-            StartCoroutine(CheckForPlayer());
-        }
+        StartCoroutine(CheckForPlayer());
     }
 
     IEnumerator CheckForPlayer()
@@ -37,8 +34,15 @@ public class Obstacle : MonoBehaviour
         {
             yield return null;
         }
-        int pointToGive = (gameObject.tag.Contains("Giant") || gameObject.tag.Contains("Wall")) ?
-            2 : 1;
-        Debug.Log($"Give player {pointToGive} points!");
+        if (!GameManager.instance.passedTutorial)
+        {
+            GameManager.instance.IncrementTutorialCount();
+        }
+        else
+        {
+            int pointToGive = (gameObject.tag.Contains("Giant") || gameObject.tag.Contains("Wall")) ?
+                2 : 1;
+            ScoreHandler.instance.UpdateScore(pointToGive);
+        }
     }
 }

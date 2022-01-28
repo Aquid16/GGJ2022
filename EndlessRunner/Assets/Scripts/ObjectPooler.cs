@@ -51,10 +51,6 @@ public class ObjectPooler : MonoBehaviour
         {
             pulledTag = tutorialSpawns[tutorialSpawnCount];
             tutorialSpawnCount++;
-            if (tutorialSpawnCount >= tutorialSpawns.Count)
-            {
-                GameManager.instance.passedTutorial = true;
-            }
         }
         else
         {
