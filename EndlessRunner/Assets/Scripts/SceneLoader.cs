@@ -16,5 +16,10 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(SwitchScene(sceneNumber));
     }
 
+    public static SceneLoader instance;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 }
