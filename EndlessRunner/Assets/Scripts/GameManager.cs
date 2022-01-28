@@ -13,10 +13,12 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] public float gameSpeed = 3f;
+    bool isPaused;
     float speedSetting;
 
     private void Start()
     {
+        Time.timeScale = 1;
         speedSetting = gameSpeed;
         gameSpeed = 0f;
     }
@@ -25,5 +27,16 @@ public class GameManager : MonoBehaviour
     {
         gameSpeed = speedSetting;
         firstInput = false;
+    }
+
+    public void TogglePause()
+    {
+        if (UIManager.instance.subWindowOpen) return;
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+        }
+        UIManager.instance.DisplayPauseScreen(isPaused, 0.75f);
     }
 }

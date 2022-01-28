@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
         inputActions.Gameplay.Swap.performed += ctx => FlipInput();
         inputActions.Gameplay.Jump.performed += ctx => JumpInput();
         inputActions.Gameplay.Jump.canceled += ctx => isJumpHeld = false;
+
+        inputActions.Gameplay.Pause.performed += ctx => GameManager.instance.TogglePause();
     }
 
     private void OnEnable()

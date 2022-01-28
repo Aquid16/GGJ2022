@@ -16,9 +16,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image faderImage;
     [SerializeField] CanvasGroup deathScreen;
     [SerializeField] CanvasGroup creditsScreen;
+    [SerializeField] CanvasGroup pauseScreen;
+    [SerializeField] CanvasGroup settingsScreen;
+
     public Slider masterSlider;
     public Slider musicSlider;
     public Slider sfxSlider;
+    public bool subWindowOpen { get; set; }
 
     bool fullScreen = true;
     Vector2[] resolutions = new Vector2[] { new Vector2(1920, 1080), new Vector2(1366, 768), new Vector2(1280, 720), new Vector2(960, 540) };
@@ -85,4 +89,46 @@ public class UIManager : MonoBehaviour
         Screen.fullScreen = isFullScreen;
     }
 
+    public void DisplayPauseScreen(bool fadeIn, float duration)
+    {
+        Sequence fadeSequence = DOTween.Sequence();
+        float fadeValue = fadeIn ? 1 : 0;
+        if (fadeIn)
+        {
+            pauseScreen.gameObject.SetActive(true);
+        }
+        fadeSequence.Append(pauseScreen.DOFade(fadeValue, duration));
+        if (!fadeIn)
+        {
+            fadeSequence.OnComplete(() =>
+            {
+                pauseScreen.gameObject.SetActive(false);
+                Time.timeScale = 1f;
+            });
+        }
+        fadeSequence.SetUpdate(true);
+        fadeSequence.Play();
+    }
+
+    public void DisplaySettingsScreen(bool fadeIn)
+    {
+        Sequence fadeSequence = DOTween.Sequence();
+        float fadeValue = fadeIn ? 1 : 0;
+        if (fadeIn)
+        {
+            settingsScreen.gameObject.SetActive(true);
+            subWindowOpen = true;
+        }
+        fadeSequence.Append(settingsScreen.DOFade(fadeValue, .75f));
+        if (!fadeIn)
+        {
+            fadeSequence.OnComplete(() =>
+            {
+                settingsScreen.gameObject.SetActive(false);
+                subWindowOpen = false;
+            });
+        }
+        fadeSequence.SetUpdate(true);
+        fadeSequence.Play();
+    }
 }
