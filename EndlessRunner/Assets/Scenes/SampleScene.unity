@@ -698,7 +698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &93979149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1695,6 +1695,7 @@ GameObject:
   m_Component:
   - component: {fileID: 524872158}
   - component: {fileID: 524872159}
+  - component: {fileID: 524872160}
   m_Layer: 0
   m_Name: Hell Music Audio Source
   m_TagString: Untagged
@@ -1727,9 +1728,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4741261869179219137, guid: f1b3139161ac0874b9a10c6e5427c1c3,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 154385994a6dfa341aa63c8547ce9417, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4f11c5551f4f3264bb8e42a99980ac21, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1813,6 +1814,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &524872160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524872157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c0187ddc0329d41b226d05613929fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loopedClip: {fileID: 8300000, guid: 38ce497fcd2d4d246b6db2c75aa93ced, type: 3}
+  maxVolume: 0.5
 --- !u!1 &528891383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,7 +2440,7 @@ MonoBehaviour:
   creditsScreen: {fileID: 0}
   pauseScreen: {fileID: 2055389909}
   settingsScreen: {fileID: 1156527910}
-  masterSlider: {fileID: 0}
+  masterSlider: {fileID: 720986759}
 --- !u!114 &651890264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3087,6 +3102,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704978297}
   m_CullTransparentMesh: 0
+--- !u!114 &720986759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8610842267490754516, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
+    type: 3}
+  m_PrefabInstance: {fileID: 670452929}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &788841247
 GameObject:
   m_ObjectHideFlags: 0
@@ -6391,6 +6418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2098263678}
   - component: {fileID: 2098263679}
+  - component: {fileID: 2098263680}
   m_Layer: 0
   m_Name: Heaven Music Audio Source
   m_TagString: Untagged
@@ -6423,9 +6451,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -3689777741903487925, guid: f1b3139161ac0874b9a10c6e5427c1c3,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: f00132aaaa2cebe498e5ee94546df5a9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c22c77d0d278f664fb34b7dc0497ca9e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6509,6 +6537,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2098263680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098263677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c0187ddc0329d41b226d05613929fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loopedClip: {fileID: 8300000, guid: 613d821a62ce37a47b0625ae4eca7507, type: 3}
+  maxVolume: 0.5
 --- !u!1 &2141124478
 GameObject:
   m_ObjectHideFlags: 0

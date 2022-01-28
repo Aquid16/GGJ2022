@@ -16,6 +16,10 @@ public class LancerEnemy : MonoBehaviour
 
     private void OnEnable()
     {
+        if (GameManager.instance.passedTutorial)
+        {
+            StartCoroutine(CheckForPlayer());
+        }
         StartCoroutine(DeactivateAfterTime());
     }
 
@@ -23,5 +27,15 @@ public class LancerEnemy : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         gameObject.SetActive(false);
+    }
+
+    IEnumerator CheckForPlayer()
+    {
+        while (PlayerController.instance.transform.position.x < transform.position.x)
+        {
+            yield return null;
+        }
+        int pointToGive = 1;
+        Debug.Log($"Give player {pointToGive} points!");
     }
 }

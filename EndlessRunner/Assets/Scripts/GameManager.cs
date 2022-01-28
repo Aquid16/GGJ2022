@@ -12,7 +12,10 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-    [SerializeField] public float gameSpeed = 3f;
+    public float gameSpeed = 3f;
+
+    public bool passedTutorial { get; set; }
+
     bool isPaused;
     bool gameRunning;
     float speedSetting;

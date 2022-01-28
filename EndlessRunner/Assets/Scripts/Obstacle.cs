@@ -22,4 +22,23 @@ public class Obstacle : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    private void OnEnable()
+    {
+        if (GameManager.instance.passedTutorial)
+        {
+            StartCoroutine(CheckForPlayer());
+        }
+    }
+
+    IEnumerator CheckForPlayer()
+    {
+        while (PlayerController.instance.transform.position.x < transform.position.x)
+        {
+            yield return null;
+        }
+        int pointToGive = (gameObject.tag.Contains("Giant") || gameObject.tag.Contains("Wall")) ?
+            2 : 1;
+        Debug.Log($"Give player {pointToGive} points!");
+    }
 }
