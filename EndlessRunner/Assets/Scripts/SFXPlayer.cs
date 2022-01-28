@@ -32,13 +32,15 @@ public class SFXPlayer : MonoBehaviour
 
     [SerializeField] List<SoundTypeToSound> soundLibrary;
     [SerializeField] AudioSource sfxSource;
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource masterSource;
     [SerializeField] AudioMixer audioMxr;
 
     private void Start()
     {
-        UIManager.instance.masterSlider.value = 0;
-        UIManager.instance.musicSlider.value = 0;
-        UIManager.instance.sfxSlider.value = 0;
+        UIManager.instance.masterSlider.value = 1;
+        UIManager.instance.musicSlider.value = 1;
+        UIManager.instance.sfxSlider.value = 1;
         UIManager.instance.masterSlider.onValueChanged.AddListener(SetMasterVolume);
         UIManager.instance.musicSlider.onValueChanged.AddListener(SetMusicVolume);
         UIManager.instance.sfxSlider.onValueChanged.AddListener(SetSFXVolume);
@@ -59,15 +61,35 @@ public class SFXPlayer : MonoBehaviour
     public void SetMasterVolume(float value)
     {
         audioMxr.SetFloat("masterValue", value);
+        masterSource.volume = value;
+        musicSource.volume = value;
+        sfxSource.volume = value;
+        UIManager.instance.musicSlider.value = value;
+        UIManager.instance.sfxSlider.value = value;
     }
 
     public void SetMusicVolume(float value)
     {
         audioMxr.SetFloat("musicValue", value);
+        musicSource.volume = value;
+
+
+        if(musicSource.volume > masterSource.volume)
+        {
+            masterSource.volume = musicSource.volume;
+            UIManager.instance.masterSlider.value = value;
+        }
     }
 
     public void SetSFXVolume(float value)
     {
         audioMxr.SetFloat("sfxValue", value);
+        sfxSource.volume = value;
+
+        if (sfxSource.volume > masterSource.volume)
+        {
+            masterSource.volume = sfxSource.volume;
+            UIManager.instance.masterSlider.value = value;
+        }
     }
 }
