@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2607,11 +2607,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 651890267}
     m_Modifications:
+    - target: {fileID: 4784439517014115667, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 651890263}
     - target: {fileID: 8610842267490754516, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1301448690}
+    - target: {fileID: 8610842267517971792, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 651890263}
+    - target: {fileID: 8610842267651994755, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 651890263}
+    - target: {fileID: 8610842267651994755, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
+        type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFullScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 8610842268581695197, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

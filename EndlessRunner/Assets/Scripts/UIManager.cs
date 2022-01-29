@@ -50,6 +50,7 @@ public class UIManager : MonoBehaviour
         {
             fadeSequence.OnComplete(() => faderImage.gameObject.SetActive(false));
         }
+        fadeSequence.SetUpdate(true);
         fadeSequence.Play();
     }
 
@@ -88,6 +89,7 @@ public class UIManager : MonoBehaviour
     public void ChangeResolution(int index)
     {
         Screen.SetResolution((int)resolutions[index].x, (int)resolutions[index].y, fullScreen);
+        Debug.Log($"Resolution should be: {resolutions[index]}. Resolution: ({Screen.width}, {Screen.height})");
     }
 
     public void SetFullScreen(bool isFullScreen)

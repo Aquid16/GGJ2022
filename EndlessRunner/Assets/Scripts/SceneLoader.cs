@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
     IEnumerator SwitchScene(int sceneNumber)
     {
         UIManager.instance.Fade(true);
-        yield return new WaitForSeconds(2.8f);
+        yield return new WaitForSecondsRealtime(2.8f);
         SceneManager.LoadScene(sceneNumber);
     }
     public void StartSwitchingScene(int sceneNumber)
