@@ -698,7 +698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &93979149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loopedClip: {fileID: 8300000, guid: 38ce497fcd2d4d246b6db2c75aa93ced, type: 3}
-  maxVolume: 0.5
+  maxVolume: 1
 --- !u!1 &528891383
 GameObject:
   m_ObjectHideFlags: 0
@@ -11522,7 +11522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loopedClip: {fileID: 8300000, guid: 613d821a62ce37a47b0625ae4eca7507, type: 3}
-  maxVolume: 0.5
+  maxVolume: 1
 --- !u!1 &2130818054
 GameObject:
   m_ObjectHideFlags: 0
