@@ -2397,6 +2397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 924146573}
   - component: {fileID: 924146574}
+  - component: {fileID: 924146575}
   m_Layer: 0
   m_Name: Music Audio Source
   m_TagString: Untagged
@@ -2429,9 +2430,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5986536172156799840, guid: f1b3139161ac0874b9a10c6e5427c1c3,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 20df84aa74e74734ba90bf8912eeddbb, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2515,6 +2516,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &924146575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924146572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c0187ddc0329d41b226d05613929fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loopedClip: {fileID: 8300000, guid: e2b6026fb33bc1a49a8ea836a3d9b240, type: 3}
+  maxVolume: 0
 --- !u!114 &1016162781 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8610842267490754516, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
