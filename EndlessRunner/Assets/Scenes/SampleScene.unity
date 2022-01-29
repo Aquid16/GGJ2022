@@ -10184,19 +10184,22 @@ MonoBehaviour:
   - prefab: {fileID: 3851786198180184804, guid: 768c268aa70b986488c1885c636fb393,
       type: 3}
     number: 10
-  - prefab: {fileID: 2574224628798132073, guid: 7d6b736a5ad9a6a409a520f07487dbbe,
-      type: 3}
-    number: 10
   - prefab: {fileID: 4717715686076955677, guid: ab1b91a8479025141a81e31e949b5a07,
       type: 3}
     number: 10
-  - prefab: {fileID: 9088452909210533969, guid: 167b8234be0e09c49b2692a372196a9e,
+  - prefab: {fileID: 2574224628798132073, guid: 7d6b736a5ad9a6a409a520f07487dbbe,
       type: 3}
+    number: 10
+  - prefab: {fileID: 1737983923920988540, guid: 2ad2f290c86c0014ebb16f587c2eb7da,
+      type: 3}
+    number: 10
+  - prefab: {fileID: 212738893064881037, guid: 5d372d4274121f7448dd3135038fab5d, type: 3}
     number: 10
   - prefab: {fileID: 7337262125362278438, guid: 71b3003eb8e937d4b8450d793685acae,
       type: 3}
     number: 10
-  - prefab: {fileID: 212738893064881037, guid: 5d372d4274121f7448dd3135038fab5d, type: 3}
+  - prefab: {fileID: 9088452909210533969, guid: 167b8234be0e09c49b2692a372196a9e,
+      type: 3}
     number: 10
   tutorialSpawns:
   - Heaven Lancer
@@ -10205,7 +10208,6 @@ MonoBehaviour:
   - Hell Spears
   - Hell Spikes
   - Hell Wall
-  chosenTag: 
 --- !u!1 &1848437508
 GameObject:
   m_ObjectHideFlags: 0

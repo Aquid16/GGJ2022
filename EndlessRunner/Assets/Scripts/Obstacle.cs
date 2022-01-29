@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    [SerializeField] float positionToDeactivate = -12.5f;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -17,7 +19,7 @@ public class Obstacle : MonoBehaviour
     private void Update()
     {
         transform.localPosition -= Time.deltaTime * Vector3.right * GameManager.instance.gameSpeed;
-        if (transform.localPosition.x <= -12.5f)
+        if (transform.localPosition.x <= positionToDeactivate)
         {
             gameObject.SetActive(false);
         }
