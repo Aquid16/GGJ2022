@@ -161,9 +161,12 @@ public class PlayerController : MonoBehaviour
         ParticleSystem.MainModule mainModule = deathParticles.main;
         mainModule.startColor = side == 1 ? Color.black : Color.white;
         deathParticles.Play();
-        Sequence fadeSequence = DOTween.Sequence();
-        fadeSequence.Append(activePlayerSpriteObject.DOFade(0, 1));
-        fadeSequence.Play();
+
+        float dissolveStep = 0;
+        Sequence dissolve = DOTween.Sequence();
+        dissolve.Append(DOTween.To(() => dissolveStep, x => dissolveStep = x, 1, 2))
+            .OnUpdate(() => activePlayerSpriteObject.material.SetFloat("_StepAmount", dissolveStep));
+        dissolve.Play();
     }
 
     public int GetSide()

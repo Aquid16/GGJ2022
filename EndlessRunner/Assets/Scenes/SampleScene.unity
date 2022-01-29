@@ -3317,7 +3317,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 1427915027451445676, guid: f1b3139161ac0874b9a10c6e5427c1c3,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3fcd7bcf6ab85864b860cd4f3c621d2d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3445,7 +3445,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 5210696949875508832, guid: f1b3139161ac0874b9a10c6e5427c1c3,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: ed9e3d99c3b09d749a996a85e850d65f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3665,7 +3665,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 265145884717217767, guid: f1b3139161ac0874b9a10c6e5427c1c3,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2a79731a58c5c994a96cacb1511e290e, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -4363,7 +4363,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9233,7 +9233,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dba62508f71096940b0c76d748b5866f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9944,7 +9944,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ba967b50d56b50544a694fae52bbe24e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10466,7 +10466,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7277665319597700500, guid: f1b3139161ac0874b9a10c6e5427c1c3,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3f81b88378a32d64b890aa5d3acd74c9, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -10675,7 +10675,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -8335082569527798716, guid: f1b3139161ac0874b9a10c6e5427c1c3,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: cdbe7ce941febd74a868d8b919d5035f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
