@@ -51,6 +51,7 @@ public class MusicAudioSource : MonoBehaviour
 
     void CrossFade()
     {
+        if (GameManager.instance.gameSpeed <= 0) return;
         shouldBeActive = !shouldBeActive;
         float targetVolume = shouldBeActive ? maxVolume : 0;
         source.DOFade(targetVolume, 0.75f);

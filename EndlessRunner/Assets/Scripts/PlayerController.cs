@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
         state = new RunningState();
         playerRB = GetComponent<Rigidbody2D>();
         activePlayerSpriteObject = angelObject;
+        inputActions.Gameplay.Swap.Disable();
     }
 
     void FlipInput()
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.firstInput)
         {
             GameManager.instance.StartGame();
+            inputActions.Gameplay.Swap.Enable();
         }
         isJumpHeld = true;
         state = state.HandleInput(this, StateTransition.ToJumping);
