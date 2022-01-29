@@ -109,6 +109,7 @@ public class ObjectPooler : MonoBehaviour
 
             if (index == 3)
             {
+                spawnWhileLocked = 0;
                 lockState = 1;
             }
         }

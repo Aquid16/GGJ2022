@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     bool isJumpHeld;
     bool isDead;
+    bool invincible;
     int side = 1;
     Rigidbody2D playerRB;
     PlayerActions inputActions;
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
 
     public void FlipAction()
     {
+        invincible = true;
         playerRB.bodyType = RigidbodyType2D.Kinematic;
         PhysicsHandler.instance.TogglePlayerGroundCollision(false);
         side *= -1;
@@ -104,6 +106,7 @@ public class PlayerController : MonoBehaviour
         PhysicsHandler.instance.FlipGravity();
         playerRB.bodyType = RigidbodyType2D.Dynamic;
         PhysicsHandler.instance.TogglePlayerGroundCollision(true);
+        invincible = false;
     }
 
     private void Update()
@@ -155,7 +158,9 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        if (invincible) return;
         isDead = true;
+        GameManager.instance.StopGame();
         SFXPlayer.instance.PlaySFX(SFXType.Death);
         inputActions.Disable();
         //animations......

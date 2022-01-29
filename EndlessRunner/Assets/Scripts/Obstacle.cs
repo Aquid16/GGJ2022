@@ -11,7 +11,6 @@ public class Obstacle : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //GAME OVER
-            GameManager.instance.StopGame();
             PlayerController.instance.Die();
         }
     }

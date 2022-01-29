@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         Fade(false, 0.5f);
+        masterSlider.value = AudioListener.volume;
     }
 
     public void Fade(bool fadeIn, float duration = 2.5f)

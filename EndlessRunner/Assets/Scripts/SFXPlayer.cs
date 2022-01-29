@@ -33,20 +33,11 @@ public class SFXPlayer : MonoBehaviour
     }
 
     [SerializeField] List<SoundTypeToSound> soundLibrary;
-    //[SerializeField] AudioSource sfxSource;
-    //[SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource masterSource;
-    [SerializeField] AudioMixer audioMxr;
 
     private void Start()
     {
-        //UIManager.instance.masterSlider.value = -35f;
         UIManager.instance.masterSlider.onValueChanged.AddListener(SetMasterVolume);
-
-        //    UIManager.instance.musicSlider.value = 1;
-        //    UIManager.instance.sfxSlider.value = 1;
-        //    UIManager.instance.musicSlider.onValueChanged.AddListener(SetMusicVolume);
-        //    UIManager.instance.sfxSlider.onValueChanged.AddListener(SetSFXVolume);
     }
 
 public void PlaySFX(SFXType type)
@@ -63,19 +54,6 @@ public void PlaySFX(SFXType type)
 
     public void SetMasterVolume(float value)
     {
-        audioMxr.SetFloat("masterValue", value);
-        masterSource.volume = value;
+        AudioListener.volume = value;
     }
-
-    //public void SetMusicVolume(float value)
-    //{
-    //    audioMxr.SetFloat("musicValue", value);
-    //    musicSource.volume = value;
-    //}
-
-    //public void SetSFXVolume(float value)
-    //{
-    //    audioMxr.SetFloat("sfxValue", value);
-    //    sfxSource.volume = value;
-    //}
 }
