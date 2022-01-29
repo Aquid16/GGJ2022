@@ -8,21 +8,24 @@ public class PlayerController : MonoBehaviour
     public static PlayerController instance;
 
     [Header("Sprite Management")]
-    [SerializeField] GameObject angelObject;
-    [SerializeField] GameObject demonObject;
+    [SerializeField] SpriteRenderer angelObject;
+    [SerializeField] SpriteRenderer demonObject;
+    public float flipDuration = 0.5f;
     [Space]
     [Header("Jumping")]
     [SerializeField] float jumpForce = 8f;
     [SerializeField][Min(1)]  float fallMultiplier = 2.5f;
     [SerializeField][Min(1)] float lowJumpMultiplier = 2f;
+    [Space]
 
-    public float flipDuration = 0.5f;
+    [SerializeField] ParticleSystem deathParticles;
 
     bool isJumpHeld;
     int side = 1;
     Rigidbody2D playerRB;
     PlayerActions inputActions;
     CharacterState state;
+    SpriteRenderer activePlayerSpriteObject;
 
     private void Awake()
     {
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         state = new RunningState();
         playerRB = GetComponent<Rigidbody2D>();
+        activePlayerSpriteObject = angelObject;
     }
 
     void FlipInput()
@@ -82,8 +86,9 @@ public class PlayerController : MonoBehaviour
 
     void FlipHalfWay()
     {
-        angelObject.SetActive(side == 1);
-        demonObject.SetActive(side == -1);
+        angelObject.gameObject.SetActive(side == 1);
+        demonObject.gameObject.SetActive(side == -1);
+        activePlayerSpriteObject = side == 1 ? angelObject : demonObject;
         Sequence flipHalfSequence = DOTween.Sequence();
         flipHalfSequence.Append(transform.DOScaleY(side, flipDuration / 2f))
             .OnComplete(() => HandleFlipEnd());
@@ -153,8 +158,11 @@ public class PlayerController : MonoBehaviour
         UIManager.instance.DisplayDeathScreen(1f);
         ObstacleGenerator.instance.StopSpawning();
 
+        ParticleSystem.MainModule mainModule = deathParticles.main;
+        mainModule.startColor = side == 1 ? Color.black : Color.white;
+        deathParticles.Play();
         Sequence fadeSequence = DOTween.Sequence();
-        fadeSequence.Append(gameObject.GetComponentInChildren<CanvasGroup>().DOFade(0, 1));
+        fadeSequence.Append(activePlayerSpriteObject.DOFade(0, 1));
         fadeSequence.Play();
     }
 

@@ -2160,18 +2160,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869455107}
   m_CullTransparentMesh: 0
---- !u!114 &888677164 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8610842267359237413, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
-    type: 3}
-  m_PrefabInstance: {fileID: 8610842268219602441}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &902495362
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,7 +2334,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2805,18 +2793,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121402889}
   m_CullTransparentMesh: 0
---- !u!114 &1140394400 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8610842269288562601, guid: 20c40c6cdf4c145449ac4cdd8004fb31,
-    type: 3}
-  m_PrefabInstance: {fileID: 8610842268219602441}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1216363618
 GameObject:
   m_ObjectHideFlags: 0
@@ -3232,8 +3208,6 @@ MonoBehaviour:
   soundLibrary:
   - type: 0
     clip: {fileID: 8300000, guid: 3f81b88378a32d64b890aa5d3acd74c9, type: 3}
-  sfxSource: {fileID: 695990538}
-  musicSource: {fileID: 924146574}
   masterSource: {fileID: 792646969}
   audioMxr: {fileID: 24100000, guid: f1b3139161ac0874b9a10c6e5427c1c3, type: 2}
 --- !u!4 &1431769574
@@ -3914,9 +3888,9 @@ MonoBehaviour:
   creditsScreen: {fileID: 1829227858}
   pauseScreen: {fileID: 0}
   settingsScreen: {fileID: 8610842268219602442}
+  scoreText: {fileID: 0}
+  totalScoreText: {fileID: 0}
   masterSlider: {fileID: 1016162781}
-  musicSlider: {fileID: 1140394400}
-  sfxSlider: {fileID: 888677164}
 --- !u!1 &2093505177
 GameObject:
   m_ObjectHideFlags: 0

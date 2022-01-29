@@ -40,7 +40,7 @@ public class SFXPlayer : MonoBehaviour
 
     private void Start()
     {
-        UIManager.instance.masterSlider.value = -35f;
+        //UIManager.instance.masterSlider.value = -35f;
         UIManager.instance.masterSlider.onValueChanged.AddListener(SetMasterVolume);
 
         //    UIManager.instance.musicSlider.value = 1;
