@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] ParticleSystem deathParticles;
 
     bool isJumpHeld;
+    bool isDead;
     int side = 1;
     Rigidbody2D playerRB;
     PlayerActions inputActions;
@@ -107,6 +108,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (isDead) return;
         HandleJumpGravity();
     }
 
@@ -153,10 +155,13 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         SFXPlayer.instance.PlaySFX(SFXType.Death);
         inputActions.Disable();
         //animations......
         playerRB.bodyType = RigidbodyType2D.Kinematic;
+        playerRB.velocity = Vector2.zero;
+        GetComponent<CapsuleCollider2D>().enabled = false;
         UIManager.instance.DisplayDeathScreen(1f);
         ObstacleGenerator.instance.StopSpawning();
 

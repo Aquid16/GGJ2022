@@ -22,4 +22,9 @@ public class SceneLoader : MonoBehaviour
     {
         instance = this;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

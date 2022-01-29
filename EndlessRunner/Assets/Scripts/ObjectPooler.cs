@@ -83,7 +83,7 @@ public class ObjectPooler : MonoBehaviour
 
         if (lockState == 1)
         {
-            chosen = tagsHell[Random.Range(0, 1)];
+            chosen = tagsHell[Random.Range(0, 2)];
             spawnWhileLocked++;
             if (spawnWhileLocked >= 3)
             {
