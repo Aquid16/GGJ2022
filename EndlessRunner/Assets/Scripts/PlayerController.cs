@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     int side = 1;
     Rigidbody2D playerRB;
     PlayerActions inputActions;
+    CapsuleCollider2D collider2D;
     CharacterState state;
     SpriteRenderer activePlayerSpriteObject;
 
@@ -55,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         state = new RunningState();
         playerRB = GetComponent<Rigidbody2D>();
+        collider2D = GetComponent<CapsuleCollider2D>();
         activePlayerSpriteObject = angelObject;
         inputActions.Gameplay.Swap.Disable();
     }

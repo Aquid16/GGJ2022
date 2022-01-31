@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        Fade(false, 0.5f);
+        Fade(false, 1f);
         if (masterSlider)
         {
             masterSlider.value = AudioListener.volume;
@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
         fadeSequence.Append(faderImage.DOFade(fadeValue, duration));
         if (!fadeIn)
         {
-            fadeSequence.OnComplete(() => faderImage.gameObject.SetActive(false));
+            fadeSequence.OnComplete(() => faderImage.gameObject.SetActive(false)).SetDelay(0.25f);
         }
         fadeSequence.SetUpdate(true);
         fadeSequence.Play();
@@ -65,6 +65,8 @@ public class UIManager : MonoBehaviour
         deathScreen.gameObject.SetActive(true);
         fadeSequence.Append(deathScreen.DOFade(1, duration)).SetDelay(1f);
         fadeSequence.Play();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void DisplayCredits(bool isActive)

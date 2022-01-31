@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public bool passedTutorial { get; set; }
 
+    [SerializeField] bool startCursorLocked;
+
     bool isPaused;
     bool gameRunning;
     float speedSetting;
@@ -28,6 +30,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         speedSetting = gameSpeed;
         gameSpeed = 0f;
+        if (startCursorLocked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 
     public void StartGame()
@@ -45,6 +52,13 @@ public class GameManager : MonoBehaviour
         if (isPaused)
         {
             Time.timeScale = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
         UIManager.instance.DisplayPauseScreen(isPaused, 0.75f);
     }
